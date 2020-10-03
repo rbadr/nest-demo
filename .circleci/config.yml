@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Check prettier
           command: npx prettier --check .
-  
+
   test:
     executor: node
     steps:
@@ -72,10 +72,6 @@ workflows:
     jobs:
       - install-dependencies
 
-      - tests:
-          requires:
-            - install-dependencies
-
       - lint:
           requires:
             - install-dependencies
@@ -91,5 +87,3 @@ workflows:
       - test-e2e:
           requires:
             - install-dependencies
-
-
